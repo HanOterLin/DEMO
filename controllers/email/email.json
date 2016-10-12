@@ -1,0 +1,54 @@
+"config": {
+"service": "126",
+"auth": {
+"user": "hloter@126.com",
+"pass": "hanlinshi5628272"
+}
+},
+"mailOptions": {
+"from": "hloter@126.com",
+"to": "hloter@qq.com",
+"subject": "nodemailer2.5.0 send email",
+"text": "Hello world",
+"html": "<b>TONY </b>"
+}
+
+"config": {
+"service": "qq",
+"auth": {
+"user": "hloter@qq.com",
+"pass": "pvyhabakvpkbbbcc"
+}
+},
+"mailOptions": {
+"from": "hloter@qq.com",
+"to": "hloter@foxmail.com",
+"subject": "nodemailer2.5.0 send email",
+"text": "Hello world",
+"html": "<b>TONY </b>"
+}
+
+"config": {
+"service": "gmail",
+"auth": {
+"user": "han.oter.lin@gmail.com",
+"pass": "oter_5628272"
+}
+},
+"mailOptions": {
+"from": "han.oter.lin@gmail.com",
+"to": "lin.tony@pwc.com",
+"subject": "nodemailer2.5.0 send email test by Tony",
+"text": "HAHAHAHA",
+"html": "<b>IT WORK!!!</b>"
+}
+
+"config": {
+"host": "172.21.7.145"
+},
+"mailOptions": {
+"to": "lin.tony@pwc.com",
+"subject": "nodemailer2.5.0 send email",
+"text": "Hello world",
+"html": "<b>TONY </b>"
+}

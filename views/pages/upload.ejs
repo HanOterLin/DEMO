@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head %>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link href="/bower_components/dropzone/dist/dropzone.css" rel="stylesheet">
+    <script src="/bower_components/dropzone/dist/dropzone.js"></script>
+    <script src="/js/index.js"></script>
+</head>
+<body class="container">
+<header>
+    <% include ../partials/header %>
+</header>
+<main>
+    <div class="jumbotron">
+        <h1><%= title %></h1>
+
+        <div id="dropzone">
+            <form id="upload" class="dropzone" method="post" action="/upload">
+                <div class="fallback">
+                    <input name="file" type="file">
+                </div>
+            </form>
+        </div>
+
+    </div>
+</main>
+<footer>
+    <% include ../partials/footer %>
+</footer>
+</body>
+</html>

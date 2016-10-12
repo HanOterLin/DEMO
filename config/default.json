@@ -1,0 +1,18 @@
+{
+  "Email" : {
+    "regTemplate" : {
+      "config": {
+        "service": "126",
+        "auth": {
+          "user": "hloter@126.com",
+          "pass": "hanlinshi5628272"
+        }
+      },
+      "mailOptions": {
+        "from": "hloter@126.com",
+        "subject": "Verification from TONY ",
+        "text": "Hello world"
+      }
+    }
+  }
+}
