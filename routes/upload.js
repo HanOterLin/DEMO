@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-// var fileEncryption = require ('../util/fileEncryption');
+var fileEncryption = require ('../util/fileEncryption');
 
 router.get('/', function (req, res) {
-  res.render('index', {title: 'upload file encryption example'});
+  res.render('pages/upload', {title: 'Upload'});
 });
 
 
