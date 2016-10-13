@@ -16,9 +16,9 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage });
 
-router.post('/upload', upload.single('file'), function (req, res) {
+router.post('/upload', upload.array('file'), function (req, res) {
     // Need full filename created here
-    console.log(req.file);
+    console.log(req.files);
     res.status(204).end();
 });
 
