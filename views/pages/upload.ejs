@@ -16,7 +16,7 @@
     <div class="jumbotron">
         <h1><%= title %></h1>
         <div id="dropzone">
-            <form id="upload" class="dropzone" method="post" action="/upload/upload">
+            <form id="upload" class="dropzone" method="post" action="/upload/upload" enctype='multipart/form-data'>
                 <div class="fallback">
                     <input name="file" type="file">
                 </div>
