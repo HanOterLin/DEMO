@@ -100,20 +100,20 @@ $(function () {
             sEmptyTable: "No data available in table"
         }
         dataTableOption.columns = [{
-            "data": "ou_name"
+            "data": "u_name"
         }, {
-            "data": "ou_email"
+            "data": "u_email"
         }, {
-            "data": "ou_pwd"
+            "data": "u_pwd"
         }, {
             width:'5%',
             render: function (data, type, full) {
-                return '<span class="glyphicon glyphicon-pencil" aria-hidden="true" user_id = ' + full.ou_id + '></span>';
+                return '<span class="glyphicon glyphicon-pencil" aria-hidden="true" user_id = ' + full.u_id + '></span>';
             }
         }, {
             width:'5%',
             render: function (data, type, full) {
-                return '<span class="rm_button glyphicon glyphicon-remove-sign" aria-hidden="true" user_id = ' + full.ou_id + '></span>'
+                return '<span class="rm_button glyphicon glyphicon-remove-sign" aria-hidden="true" user_id = ' + full.u_id + '></span>'
             }
         }];
 
@@ -148,11 +148,9 @@ $(function () {
                 dataType: 'json',
                 method: "get",
                 success: function (res) {
-                    alert("test");
                     initUserTable();
                 },
                 error: function (err) {
-                    alert("test");
                     console.error(err);
                 }
             });
