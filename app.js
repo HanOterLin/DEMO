@@ -13,6 +13,7 @@ var emailRegistration = require('./routes/email-registration');
 var service_sendEmail = require('./controllers/email/email');
 var about = require('./routes/about');
 var upload = require('./routes/upload');
+var sms = require('./routes/sms');
 
 //set global variables
 require('dotenv').config();
@@ -41,6 +42,7 @@ app.use('/email', service_sendEmail);
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/sms', sms);
 app.use('/upload', upload);
 app.use('/code-verification', verification);
 app.use('/about', about);
