@@ -8,6 +8,22 @@ function init() {
 
 function eventBinding() {
 
+    $("#test").click(function() {
+        $.ajax({
+            contentType: "application/json",
+            crossDomain: true,
+            method: 'POST',
+            data: JSON.stringify({'test':'test'}),
+            dataType:'text',
+            url: "email/test",
+            success: function(res) {
+                setMsg('success', 'Well done!', res);
+            },error: function() {
+                setMsg('danger', 'Error!', 'Request failed.');
+            }
+        });
+    });
+
     $("#sign-up-btn").click(function() {
         setMsg('info', 'Running.....', '');
 
@@ -88,4 +104,8 @@ function setMsg(type, title, content) {
     }catch (e){
         console.error(e);
     }
+}
+
+function test() {
+    
 }

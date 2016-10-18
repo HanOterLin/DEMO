@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "alidayu-node": "^1.0.3",
+    "async": "^2.1.2",
     "body-parser": "~1.15.1",
     "config": "^1.21.0",
     "cookie-parser": "~1.4.3",
