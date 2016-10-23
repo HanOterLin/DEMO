@@ -10,9 +10,10 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var verification = require('./routes/verification');
 var emailRegistration = require('./routes/email-registration');
-var service_sendEmail = require('./controllers/email/email');
+var emailService = require('./controllers/email');
 var about = require('./routes/about');
 var upload = require('./routes/upload');
+var uploadService = require('./controllers/upload');
 var sms = require('./routes/sms');
 
 //set global variables
@@ -37,13 +38,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Registration Pages
 app.use('/email', emailRegistration);
-app.use('/email', service_sendEmail);
+app.use('/email', emailService);
 
 
 app.use('/', routes);
 app.use('/users', users);
 app.use('/sms', sms);
 app.use('/upload', upload);
+app.use('/upload', uploadService);
 app.use('/code-verification', verification);
 app.use('/about', about);
 
