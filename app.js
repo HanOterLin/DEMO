@@ -22,6 +22,9 @@ global.APP_NAME = process.env.APP_NAME;
 global.RENDER_DATA = {APP_NAME: APP_NAME};
 global.POSTGRE_CONNECTION = process.env.POSTGRESQL_CONNECTION + APP_NAME;
 
+
+require('./global');
+
 var app = express();
 
 // view engine setup
