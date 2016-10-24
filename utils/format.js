@@ -1,5 +1,5 @@
 // hard-coded to US format MM/DD/YYYY which zero pads day and month < 10
-module.exports.formatDate = function(date) {
+module.exports.formatDate = function (date) {
     var date = new Date(date);
     var year = date.getFullYear();
     var month = (1 + date.getMonth()).toString();
