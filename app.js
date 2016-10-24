@@ -6,15 +6,15 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var verification = require('./routes/verification');
-var emailRegistration = require('./routes/email-registration');
-var emailService = require('./controllers/email');
-var about = require('./routes/about');
-var upload = require('./routes/upload');
-var uploadService = require('./controllers/upload');
-var sms = require('./routes/sms');
+// var routes = require('./routes/index');
+// var users = require('./routes/users');
+// var verification = require('./routes/verification');
+// var emailRegistration = require('./routes/email-registration');
+// var emailService = require('./controllers/email');
+// var about = require('./routes/about');
+// var upload = require('./routes/upload');
+// var uploadService = require('./controllers/upload');
+// var sms = require('./routes/sms');
 
 //set global variables
 require('dotenv').config();
@@ -39,18 +39,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var filter = require(__app.__filters.filters);
+
+app.use(filter());
+app.use('/' + APP_NAME, require(__app.__routes.root));
+app.use('/' + APP_NAME, require(__app.__apis.root));
+
 // Registration Pages
-app.use('/email', emailRegistration);
-app.use('/email', emailService);
-
-
-app.use('/', routes);
-app.use('/users', users);
-app.use('/sms', sms);
-app.use('/upload', upload);
-app.use('/upload', uploadService);
-app.use('/code-verification', verification);
-app.use('/about', about);
+// app.use('/email', emailRegistration);
+// app.use('/email', emailService);
+//
+//
+// app.use('/', routes);
+// app.use('/users', users);
+// app.use('/sms', sms);
+// app.use('/upload', upload);
+// app.use('/upload', uploadService);
+// app.use('/code-verification', verification);
+// app.use('/about', about);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

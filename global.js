@@ -10,14 +10,14 @@ global.__app.__root = {
     __services: path.join(__dirname, 'services'),
     __apis: path.join(__dirname, 'apis'),
     __filters: path.join(__dirname, 'filters'),
-    __utils: path.join(__dirname, 'util'),
+    __utils: path.join(__dirname, 'utils'),
 };
 
 //modules in routes folder
 global.__app.__routes = {
     upload: path.join(__app.__root.__routes, 'upload'),
-    // root: path.join(__app.__root.__routes, 'root'),
-    // home: path.join(__app.__root.__routes, 'home'),
+    root: path.join(__app.__root.__routes, 'root'),
+    index: path.join(__app.__root.__routes, 'index'),
     // dashboard: path.join(__app.__root.__routes, 'dashboard'),
     // survey: path.join(__app.__root.__routes, 'survey'),
     // workflow: path.join(__app.__root.__routes, 'workflow'),
@@ -63,7 +63,7 @@ global.__app.__services = {
 //modules in apis folder
 global.__app.__apis = {
     upload: path.join(__app.__root.__apis, 'uploadAPI'),
-    // root: path.join(__app.__root.__apis, 'rootAPI'),
+    root: path.join(__app.__root.__apis, 'rootAPI'),
     // dashboard: path.join(__app.__root.__apis, 'dashboardAPI'),
     // survey: path.join(__app.__root.__apis, 'surveyAPI'),
     // workflow: path.join(__app.__root.__apis, 'workflowAPI'),
@@ -88,14 +88,14 @@ global.__app.__filters = {
 };
 
 global.__app.__rests = {
-    survey: path.join(__app.__root.__rest, 'surveyFaastDao'),
-    workflow: path.join(__app.__root.__rest, 'workflowFaastDao'),
-    assignment: path.join(__app.__root.__rest, 'assignmentFaastDao'),
-    alert: path.join(__app.__root.__rest, 'alertFaastDao'),
-    user: path.join(__app.__root.__rest, 'userFaastDao'),
-    notes: path.join(__app.__root.__rest, 'notesFaastDao'),
-    correspondence: path.join(__app.__root.__rest, 'correspondenceFaastDao'),
-    task: path.join(__app.__root.__rest, 'taskFaastDao')
+    // survey: path.join(__app.__root.__rest, 'surveyFaastDao'),
+    // workflow: path.join(__app.__root.__rest, 'workflowFaastDao'),
+    // assignment: path.join(__app.__root.__rest, 'assignmentFaastDao'),
+    // alert: path.join(__app.__root.__rest, 'alertFaastDao'),
+    // user: path.join(__app.__root.__rest, 'userFaastDao'),
+    // notes: path.join(__app.__root.__rest, 'notesFaastDao'),
+    // correspondence: path.join(__app.__root.__rest, 'correspondenceFaastDao'),
+    // task: path.join(__app.__root.__rest, 'taskFaastDao')
 };
 
 global.__app.__utils = {
@@ -110,4 +110,4 @@ global.__app.__utils = {
 
 //global variables
 // global.login_page_url = faast_url + app_name.toLowerCase() + '-login';
-// global.jwt_name = 'jwt-' + app_name.toLowerCase().replace('_', '-');
+global.jwt_name = 'jwt-' + APP_NAME;

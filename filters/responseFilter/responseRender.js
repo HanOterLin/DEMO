@@ -18,8 +18,8 @@ module.exports = function (res, view, options, callback) {
     } else {
         options = options ? options : {};
 
-        options.app_name = app_name;
-        options.faast_url = faast_url;
+        options.app_name = APP_NAME;
+        // options.faast_url = faast_url;
 
         res.render(view, options, callback);
     }

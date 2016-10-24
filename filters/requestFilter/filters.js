@@ -11,7 +11,8 @@ var self = {
 
         self.o = options || {};
 
-        self.add(initFilter).add(jwtFilter).add(xssFilter);
+        // self.add(initFilter).add(jwtFilter).add(xssFilter);
+        self.add(initFilter).add(xssFilter);
 
         return self.run;
     },
