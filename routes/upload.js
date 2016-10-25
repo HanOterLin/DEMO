@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var responseRender = require(__app.__filters.responseRender);
 
-router.get('/', function (req, res) {
-    res.render('pages/upload', {title: 'Upload'});
+router.get('/', function (req, res, next) {
+    responseRender(res, 'pages/upload');
 });
 
 module.exports = router;

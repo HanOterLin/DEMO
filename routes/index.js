@@ -4,7 +4,6 @@ var responseRender = require(__app.__filters.responseRender);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // res.render('pages/index', { title: 'Home' });
   responseRender(res, 'pages/index');
 });
 

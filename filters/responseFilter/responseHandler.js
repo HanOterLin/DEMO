@@ -36,7 +36,6 @@ module.exports = function(res, err, result) {
                     error.code = err.code;
                     error["msg"] = codeMapping[err.code] ? codeMapping[err.code] : "error";
                 }
-
             }
             console.log(JSON.stringify(error));
             beforeSend(res, err, error);
@@ -51,6 +50,4 @@ module.exports = function(res, err, result) {
     } catch (e) {
         console.log(e);
     }
-
-
 }

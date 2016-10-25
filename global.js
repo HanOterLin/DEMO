@@ -16,6 +16,7 @@ global.__app.__root = {
 //modules in routes folder
 global.__app.__routes = {
     upload: path.join(__app.__root.__routes, 'upload'),
+    email: path.join(__app.__root.__routes, 'email'),
     root: path.join(__app.__root.__routes, 'root'),
     index: path.join(__app.__root.__routes, 'index'),
     // dashboard: path.join(__app.__root.__routes, 'dashboard'),
@@ -30,6 +31,7 @@ global.__app.__routes = {
 //modules in dao folder
 global.__app.__dao = {
     upload: path.join(__app.__root.__dao, 'uploadDao'),
+    email: path.join(__app.__root.__dao, 'emailDao'),
     // home: path.join(__app.__root.__dao, 'homeDao'),
     // dashboard: path.join(__app.__root.__dao, 'dashboardDao'),
     // case: path.join(__app.__root.__dao, 'caseDao'),
@@ -44,6 +46,7 @@ global.__app.__dao = {
 //modules in services folder
 global.__app.__services = {
     upload: path.join(__app.__root.__services, 'uploadService'),
+    email: path.join(__app.__root.__services, 'emailService'),
     // home: path.join(__app.__root.__services, 'homeService'),
     // dashboard: path.join(__app.__root.__services, 'dashboardService'),
     // case: path.join(__app.__root.__services, 'caseService'),
@@ -62,6 +65,7 @@ global.__app.__services = {
 
 //modules in apis folder
 global.__app.__apis = {
+    email: path.join(__app.__root.__apis, 'emailAPI'),
     upload: path.join(__app.__root.__apis, 'uploadAPI'),
     root: path.join(__app.__root.__apis, 'rootAPI'),
     // dashboard: path.join(__app.__root.__apis, 'dashboardAPI'),

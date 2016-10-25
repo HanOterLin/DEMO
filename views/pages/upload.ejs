@@ -2,7 +2,7 @@
 <html>
 <head>
     <% include ../partials/head %>
-    <title><%= title %></title>
+    <title><%= app_name %></title>
 </head>
 <body class="container">
 <header>
@@ -14,9 +14,9 @@
 </header>
 <main>
     <div class="jumbotron">
-        <h1><%= title %></h1>
         <div id="dropzone">
-            <form id="upload" class="dropzone" method="post" action="/upload/upload" enctype='multipart/form-data'>
+            <form id="upload" class="dropzone" method="post" action="/<%= app_name %>/upload/upload-file"
+                  enctype='multipart/form-data'>
                 <div class="fallback">
                     <input name="file" type="file">
                 </div>
