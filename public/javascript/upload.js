@@ -1,6 +1,6 @@
 Dropzone.options.upload = {
     paramName: 'file',
-    // maxFilesize: 2, // MB
+    maxFilesize: 4096, // MB
     // maxFiles: 1,
     dictDefaultMessage: 'Drag a file here to upload, or click to select one',
     // acceptedFiles: '*/*',

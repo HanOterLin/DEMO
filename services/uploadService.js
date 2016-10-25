@@ -11,7 +11,7 @@ module.exports.uploadFile = function (req, res, callback) {
             callback(null, Date.now() + '-' + file.originalname)
         }
     });
-    var upload = multer({storage: storage}).single('file');
+    var upload = multer({storage: storage}).array('file', 10);
 
     upload(req, res, function (error) {
         if (error) {
