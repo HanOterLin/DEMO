@@ -42,10 +42,11 @@ function eventBinding() {
                 method: 'POST',
                 data: JSON.stringify(data),
                 dataType:'text',
-                url: "email/registration",
+                url: "email/sendEmail",
                 success: function(res) {
                     setMsg('success', 'Well done!', res);
-                },error: function() {
+                },error: function(error) {
+                    console.log(error);
                     setMsg('danger', 'Error!', 'Request failed.');
                 }
             });

@@ -1,6 +1,6 @@
 {
   "Email" : {
-    "regTemplate" : {
+    "email_example" : {
       "config": {
         "service": "126",
         "auth": {
