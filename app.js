@@ -100,7 +100,7 @@ app.use(function(err, req, res, next) {
 app.set('port', 8888);
 app.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
-
+  console.log('http://localhost:' + app.get('port') + '/' + APP_NAME);
 });
 
 module.exports = app;

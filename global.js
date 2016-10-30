@@ -17,6 +17,7 @@ global.__app.__root = {
 global.__app.__routes = {
     upload: path.join(__app.__root.__routes, 'upload'),
     email: path.join(__app.__root.__routes, 'email'),
+    user: path.join(__app.__root.__routes, 'user'),
     root: path.join(__app.__root.__routes, 'root'),
     index: path.join(__app.__root.__routes, 'index'),
     // dashboard: path.join(__app.__root.__routes, 'dashboard'),
@@ -32,6 +33,7 @@ global.__app.__routes = {
 global.__app.__dao = {
     upload: path.join(__app.__root.__dao, 'uploadDao'),
     email: path.join(__app.__root.__dao, 'emailDao'),
+    user: path.join(__app.__root.__dao, 'userDao'),
     // home: path.join(__app.__root.__dao, 'homeDao'),
     // dashboard: path.join(__app.__root.__dao, 'dashboardDao'),
     // case: path.join(__app.__root.__dao, 'caseDao'),
@@ -47,6 +49,7 @@ global.__app.__dao = {
 global.__app.__services = {
     upload: path.join(__app.__root.__services, 'uploadService'),
     email: path.join(__app.__root.__services, 'emailService'),
+    user: path.join(__app.__root.__services, 'userService'),
     // home: path.join(__app.__root.__services, 'homeService'),
     // dashboard: path.join(__app.__root.__services, 'dashboardService'),
     // case: path.join(__app.__root.__services, 'caseService'),
@@ -67,6 +70,7 @@ global.__app.__services = {
 global.__app.__apis = {
     email: path.join(__app.__root.__apis, 'emailAPI'),
     upload: path.join(__app.__root.__apis, 'uploadAPI'),
+    user: path.join(__app.__root.__apis, 'userAPI'),
     root: path.join(__app.__root.__apis, 'rootAPI'),
     // dashboard: path.join(__app.__root.__apis, 'dashboardAPI'),
     // survey: path.join(__app.__root.__apis, 'surveyAPI'),

@@ -4,6 +4,7 @@ var router = express.Router();
 //definition
 var uploadAPI = require(__app.__apis.upload);
 var emailAPI = require(__app.__apis.email);
+var userAPI = require(__app.__apis.user);
 // var dashboardAPI = require(__app.__apis.dashboard);
 // var surveyAPI = require(__app.__apis.survey);
 // var workflowAPI = require(__app.__apis.workflow);
@@ -18,6 +19,7 @@ var emailAPI = require(__app.__apis.email);
 //including
 router.use('/upload', uploadAPI);
 router.use('/email', emailAPI);
+router.use('/user', userAPI);
 // router.use('/dashboard', dashboardAPI);
 // router.use('/survey', surveyAPI);
 // router.use('/workflow', workflowAPI);

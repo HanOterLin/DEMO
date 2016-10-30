@@ -24,13 +24,16 @@ $(function () {
                 "pwd": currUserPwd
             };
             $.ajax({
-                url: "/users/addUser",
+                url: "user/add-user",
                 data: data,
-                dataType: 'json',
-                method: "get",
+                method: "post",
                 success: function (res) {
+                    if (res.code === 0) {
+                        initUserTable();
+                    } else {
+                        console.error(res);
+                    }
                     $('#addUser').modal('hide');
-                    initUserTable();
                 },
                 error: function (err) {
                     console.error(err);
@@ -51,13 +54,16 @@ $(function () {
                 "pwd": currUserPwd
             };
             $.ajax({
-                url: "users/updateUser",
+                url: "user/update-user",
                 data: data,
-                dataType: 'json',
                 method: "post",
                 success: function (res) {
-                    $('#editUser').modal('hide');
-                    initUserTable();
+                    if (res.code === 0) {
+                        $('#editUser').modal('hide');
+                        initUserTable();
+                    } else {
+                        console.error(res);
+                    }
                 },
                 error: function (err) {
                     console.error(err);
@@ -70,18 +76,19 @@ $(function () {
 
     function initUserTable() {
         $.ajax({
-            contentType: "application/json",
-            crossDomain: true,
             method: 'get',
             data: '',
-            dataType: 'json',
-            url: "users/getAllUsers",
+            url: "user/all-user",
             success: function (res) {
-                setUserTable(res);
+                if (res.code === 0) {
+                    setUserTable(res.data);
+                } else {
+                    setUserTable(new Array());
+                }
                 setUserTableOptions();
             },
-            error: function (data) {
-                alert("failed");
+            error: function (err) {
+                console.error(err);
             }
         });
     }
@@ -106,12 +113,12 @@ $(function () {
         }, {
             "data": "u_pwd"
         }, {
-            width:'5%',
+            width: '5%',
             render: function (data, type, full) {
                 return '<span class="glyphicon glyphicon-pencil" aria-hidden="true" user_id = ' + full.u_id + '></span>';
             }
         }, {
-            width:'5%',
+            width: '5%',
             render: function (data, type, full) {
                 return '<span class="rm_button glyphicon glyphicon-remove-sign" aria-hidden="true" user_id = ' + full.u_id + '></span>'
             }
@@ -143,12 +150,15 @@ $(function () {
                 "id": currUserId
             };
             $.ajax({
-                url: "users/removeUserById",
+                url: "user/remove-user",
                 data: data,
-                dataType: 'json',
-                method: "get",
+                method: "post",
                 success: function (res) {
-                    initUserTable();
+                    if(res.code === 0){
+                        initUserTable();
+                    }else{
+                        console.error(res);
+                    }
                 },
                 error: function (err) {
                     console.error(err);

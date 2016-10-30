@@ -5,6 +5,7 @@ var router = express.Router();
 var upload = require(__app.__routes.upload);
 var index = require(__app.__routes.index);
 var email = require(__app.__routes.email);
+var user = require(__app.__routes.user);
 // var dashboard = require(__app.__routes.dashboard);
 // var survey = require(__app.__routes.survey);
 // var workflow = require(__app.__routes.workflow);
@@ -17,6 +18,7 @@ var email = require(__app.__routes.email);
 router.use('/', index);
 router.use('/upload', upload);
 router.use('/email', email);
+router.use('/user', user);
 
 // router.use('/dashboard', dashboard);
 //
