@@ -3,28 +3,12 @@ var db = pgp('postgres://postgres:admin@localhost:5432/OTER');
 // var logger = require(__app.__utils.log).getLogger(__filename);
 
 module.exports.getAllUsers = function (params, callback) {
-    db.query("select u_id, encode(decrypt(u_name::bytea,${key},'aes'), 'escape') as u_name, encode(decrypt(u_email::bytea,${key},'aes'), 'escape') as u_email, u_level, encode(decrypt(u_pwd::bytea,${key},'aes'), 'escape') as u_pwd, u_uuid from oter.user", params)
+    db.query("select u_id, encode(decrypt(u_name::bytea,${key},'aes'), 'escape') as u_name, encode(decrypt(u_email::bytea,${key},'aes'), 'escape') as u_email, u_level, encode(decrypt(u_pwd::bytea,${key},'aes'), 'escape') as u_pwd, u_uuid from oter.user", 9)
         .then(function (data) {
-            var fs = require('fs');
-
-            var logger = require('tracer').console({
-                "transport": function (data) {
-                    console.log(data.output);
-                    fs.appendFile('./file.log', data.output + '\n', function(err) {
-                        if (err) throw err;
-                    });
-                }
-            });
-
-            logger.log('hello');
-            logger.trace('hello', 'world');
-            logger.debug('hello %s', 'world', 123);
-            logger.info('hello %s %d', 'world', 123, {foo: 'bar'});
-            logger.warn('hello %s %d %j', 'world', 123, {foo: 'bar'});
-            logger.error('hello %s %d %j', 'world', 123, {foo: 'bar'}, [1, 2, 3, 4], Object);
-
             callback(null, data);
         }).catch(function (error) {
+        var logger = require('tracer').console({level:'warn'});
+        logger.warn(error);
         callback(error, null);
     });
 }

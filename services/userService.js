@@ -10,6 +10,8 @@ module.exports.getAllUsers = function (callback) {
         if (error) {
             callback(error, null);
         } else {
+            var logger = require('tracer').console({level:'warn'});
+            logger.warn(error);
             callback(null, data);
         }
     });
@@ -47,38 +49,3 @@ module.exports.updateUser = function (params, callback) {
         }
     });
 }
-
-
-//
-// router.post('/updateUser', function (req, res) {
-//     var data = req.body;
-//     data.key = key;
-//     db.query("UPDATE oter.user SET u_name = encrypt(${name},${key},'aes'), u_email = encrypt(${email},${key},'aes'), u_pwd = encrypt(${pwd},${key},'aes') where u_id = ${id}", data)
-//         .then(function (data) {
-//             res.end(JSON.stringify(data));
-//         }).catch(function (error) {
-//         res.end(error);
-//     })
-// });
-//
-// router.get('/addUser', function (req, res) {
-//     var data = req.query;
-//     data.key = key;
-//
-//     db.query("insert into oter.user(u_name, u_email, u_pwd) values (encrypt(${name},${key},'aes'),encrypt(${email},${key},'aes') ,encrypt(${pwd},${key},'aes'))", data)
-//         .then(function (data) {
-//             res.end(JSON.stringify(data));
-//         }).catch(function (error) {
-//         res.end(error);
-//     })
-// });
-//
-// router.get('/removeUserById', function (req, res) {
-//     var data = req.query;
-//     data.key = key;
-//     db.query("DELETE FROM oter.user where u_id = ${id} ", data).then(function (data) {
-//         res.end(JSON.stringify(data));
-//     }).catch(function (error) {
-//         res.end(error);
-//     })
-// });
