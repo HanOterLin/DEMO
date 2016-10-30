@@ -6,22 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
 
-// var routes = require('./routes/index');
-// var users = require('./routes/users');
-// var verification = require('./routes/verification');
-// var emailRegistration = require('./routes/email-registration');
-// var emailService = require('./controllers/email');
-// var about = require('./routes/about');
-// var upload = require('./routes/upload');
-// var uploadService = require('./controllers/upload');
-// var sms = require('./routes/sms');
-
 //set global variables
 require('dotenv').config();
 global.APP_NAME = process.env.APP_NAME;
 global.RENDER_DATA = {APP_NAME: APP_NAME};
-global.POSTGRE_CONNECTION = process.env.POSTGRESQL_CONNECTION + APP_NAME;
-
+global.POSTGRE_CONNECTION = process.env.POSTGRE_CONNECTION + APP_NAME;
 
 require('./global');
 
@@ -44,19 +33,6 @@ var filter = require(__app.__filters.filters);
 app.use(filter());
 app.use('/' + APP_NAME, require(__app.__routes.root));
 app.use('/' + APP_NAME, require(__app.__apis.root));
-
-// Registration Pages
-// app.use('/email', emailRegistration);
-// app.use('/email', emailService);
-//
-//
-// app.use('/', routes);
-// app.use('/users', users);
-// app.use('/sms', sms);
-// app.use('/upload', upload);
-// app.use('/upload', uploadService);
-// app.use('/code-verification', verification);
-// app.use('/about', about);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -88,14 +64,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-// fs.readdirSync('./controllers').forEach(function(file) {
-//   if (file.substr(-3) == '.js') {
-//     var route = require('./controllers/' + file);
-//     route.controller(app, currentUser);
-//   }
-// });
-
 
 app.set('port', 8888);
 app.listen(app.get('port'), function () {

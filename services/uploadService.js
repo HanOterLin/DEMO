@@ -1,5 +1,6 @@
 var uploadDao = require(__app.__dao.upload);
 var jwtUtil = require(__app.__utils.jwt);
+var logger = require(__app.__utils.log).logger();
 
 module.exports.uploadFile = function (req, res, callback) {
     var multer = require('multer');
@@ -15,6 +16,7 @@ module.exports.uploadFile = function (req, res, callback) {
 
     upload(req, res, function (error) {
         if (error) {
+            logger.error(error);
             callback(error, null);
             return;
         } else {

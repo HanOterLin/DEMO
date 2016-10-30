@@ -1,7 +1,8 @@
-// var jwtUtil = require(__app.__utils.jwt);
+var jwtUtil = require(__app.__utils.jwt);
 var config = require('config');
 var uuid = require('uuid');
 var nodemailer = require('nodemailer');
+var logger = require(__app.__utils.log).logger();
 
 module.exports.sendEmail = function (params, callback) {
     try {
@@ -12,6 +13,7 @@ module.exports.sendEmail = function (params, callback) {
         var transporter = nodemailer.createTransport(email.config);
         transporter.sendMail(email.mailOptions, function (error, info) {
             if (error) {
+                logger.error(error);
                 callback(error, null);
             } else {
                 callback(null, info.response);

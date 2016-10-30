@@ -83,6 +83,7 @@ $(function () {
                 if (res.code === 0) {
                     setUserTable(res.data);
                 } else {
+                    console.error(res);
                     setUserTable(new Array());
                 }
                 setUserTableOptions();
@@ -115,12 +116,12 @@ $(function () {
         }, {
             width: '5%',
             render: function (data, type, full) {
-                return '<span class="glyphicon glyphicon-pencil" aria-hidden="true" user_id = ' + full.u_id + '></span>';
+                return '<span class="glyphicon glyphicon-pencil" aria-hidden="true" user_id = ' + full.u_uuid + '></span>';
             }
         }, {
             width: '5%',
             render: function (data, type, full) {
-                return '<span class="rm_button glyphicon glyphicon-remove-sign" aria-hidden="true" user_id = ' + full.u_id + '></span>'
+                return '<span class="rm_button glyphicon glyphicon-remove-sign" aria-hidden="true" user_id = ' + full.u_uuid + '></span>'
             }
         }];
 
@@ -154,9 +155,9 @@ $(function () {
                 data: data,
                 method: "post",
                 success: function (res) {
-                    if(res.code === 0){
+                    if (res.code === 0) {
                         initUserTable();
-                    }else{
+                    } else {
                         console.error(res);
                     }
                 },
