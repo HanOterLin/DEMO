@@ -31,12 +31,12 @@ $(function () {
                     if (res.code === 0) {
                         initUserTable();
                     } else {
-                        console.error(res);
+                        console.log(res);
                     }
                     $('#addUser').modal('hide');
                 },
                 error: function (err) {
-                    console.error(err);
+                    console.log(err);
                 }
             });
         });
@@ -62,11 +62,11 @@ $(function () {
                         $('#editUser').modal('hide');
                         initUserTable();
                     } else {
-                        console.error(res);
+                        console.log(res);
                     }
                 },
                 error: function (err) {
-                    console.error(err);
+                    console.log(err);
                 }
             });
         });
@@ -83,13 +83,13 @@ $(function () {
                 if (res.code === 0) {
                     setUserTable(res.data);
                 } else {
-                    console.error(res);
+                    console.log(res);
                     setUserTable(new Array());
                 }
                 setUserTableOptions();
             },
             error: function (err) {
-                console.error(err);
+                console.log(err);
             }
         });
     }
@@ -158,11 +158,11 @@ $(function () {
                     if (res.code === 0) {
                         initUserTable();
                     } else {
-                        console.error(res);
+                        console.log(res);
                     }
                 },
                 error: function (err) {
-                    console.error(err);
+                    console.log(err);
                 }
             });
         });

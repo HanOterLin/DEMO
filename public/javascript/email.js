@@ -8,22 +8,6 @@ function init() {
 
 function eventBinding() {
 
-    $("#test").click(function() {
-        $.ajax({
-            contentType: "application/json",
-            crossDomain: true,
-            method: 'POST',
-            data: JSON.stringify({'test':'test'}),
-            dataType:'text',
-            url: "email/test",
-            success: function(res) {
-                setMsg('success', 'Well done!', res);
-            },error: function() {
-                setMsg('danger', 'Error!', 'Request failed.');
-            }
-        });
-    });
-
     $("#sign-up-btn").click(function() {
         setMsg('info', 'Running.....', '');
 
@@ -52,23 +36,6 @@ function eventBinding() {
             });
         }
     });
-
-    // $("#dbTest").click(function () {
-    //     $.ajax({
-    //         contentType: "application/json",
-    //         crossDomain: true,
-    //         method: 'POST',
-    //         data: '',
-    //         dataType:'json',
-    //         url: "send-email/dbtest",
-    //         success: function(res) {
-    //             alert("success");
-    //         },
-    //         error: function(data) {
-    //             alert("failed");
-    //         }
-    //     });
-    // });
 
 }
 
@@ -103,10 +70,6 @@ function setMsg(type, title, content) {
         sign_up_msg.removeClass().addClass(msgType[type]);
         sign_up_msg.text('').append('<strong>' + title + '</strong> ' + content + ' ');
     }catch (e){
-        console.error(e);
+        console.log(e);
     }
-}
-
-function test() {
-    
 }

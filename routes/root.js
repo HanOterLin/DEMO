@@ -6,6 +6,7 @@ var upload = require(__app.__routes.upload);
 var index = require(__app.__routes.index);
 var email = require(__app.__routes.email);
 var user = require(__app.__routes.user);
+var sms = require(__app.__routes.sms);
 // var dashboard = require(__app.__routes.dashboard);
 // var survey = require(__app.__routes.survey);
 // var workflow = require(__app.__routes.workflow);
@@ -19,6 +20,7 @@ router.use('/', index);
 router.use('/upload', upload);
 router.use('/email', email);
 router.use('/user', user);
+router.use('/sms', sms);
 
 // router.use('/dashboard', dashboard);
 //

@@ -1,10 +1,10 @@
 var express = require('express');
 var alidayu = require('alidayu-node');
-
 var router = express.Router();
+var responseRender = require(__app.__filters.responseRender);
 
-router.get('/', function (req, res) {
-    res.render('pages/sms', {title: 'SMS'});
+router.get('/', function (req, res, next) {
+    responseRender(res, 'pages/sms');
 });
 router.get('/sendMsg', function (req, res) {
 

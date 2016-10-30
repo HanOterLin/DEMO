@@ -2,9 +2,9 @@
 <html>
 <head>
     <% include ../partials/head %>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <script type="text/javascript" src="/javascript/email-registration.js"></script>
+    <title>SMS &middot; <%= app_name %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script type="text/javascript" src="/javascript/sms.js"></script>
 </head>
 <body class="container">
 <header>
@@ -13,7 +13,17 @@
 <main>
     <div class="jumbotron">
         <h2>SMS</h2>
-        <a id="sign-up-btn" class="btn btn-lg btn-primary" href="/sms/sendMsg" role="button">sign up »</a>
+        <div class="form-group">
+            <label for="phone-number">Phone Number:</label>
+            <input type="phone-number" class="form-control" id="phone-number" placeholder="phone number"
+                   value="13162551240">
+        </div>
+        <div class="form-group">
+            <label for="msg-content">Message content:</label>
+            <input type="msg-content" class="form-control" id="msg-content" placeholder="message content">
+        </div>
+        <div id="curr-msg" class="" role="alert"></div>
+        <a id="send-msg" class="btn btn-lg btn-primary" role="button">sign up »</a>
     </div>
 </main>
 <footer>
