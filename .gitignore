@@ -4,5 +4,3 @@ bower_components/
 logs/
 upload/*
 !upload/.keep
-log/*
-!log/.keep
