@@ -21,13 +21,6 @@ global.__app.__routes = {
     sms: path.join(__app.__root.__routes, 'sms'),
     root: path.join(__app.__root.__routes, 'root'),
     index: path.join(__app.__root.__routes, 'index'),
-    // dashboard: path.join(__app.__root.__routes, 'dashboard'),
-    // survey: path.join(__app.__root.__routes, 'survey'),
-    // workflow: path.join(__app.__root.__routes, 'workflow'),
-    // search: path.join(__app.__root.__routes, 'search'),
-    // admin: path.join(__app.__root.__routes, 'admin'),
-    // mycronos: path.join(__app.__root.__routes, 'mycronos'),
-    // entity: path.join(__app.__root.__routes, 'entity'),
 };
 
 //modules in dao folder
@@ -36,15 +29,6 @@ global.__app.__dao = {
     email: path.join(__app.__root.__dao, 'emailDao'),
     user: path.join(__app.__root.__dao, 'userDao'),
     sms: path.join(__app.__root.__dao, 'smsDao'),
-    // home: path.join(__app.__root.__dao, 'homeDao'),
-    // dashboard: path.join(__app.__root.__dao, 'dashboardDao'),
-    // case: path.join(__app.__root.__dao, 'caseDao'),
-    // workflow: path.join(__app.__root.__dao, 'workflowDao'),
-    // admin: path.join(__app.__root.__dao, "adminDao"),
-    // role: path.join(__app.__root.__dao, "roleDao"),
-    // user: path.join(__app.__root.__dao, "userDao"),
-    // alert: path.join(__app.__root.__dao, "alertDao"),
-    // entity: path.join(__app.__root.__dao, 'entityDao'),
 };
 
 //modules in services folder
@@ -53,20 +37,6 @@ global.__app.__services = {
     email: path.join(__app.__root.__services, 'emailService'),
     user: path.join(__app.__root.__services, 'userService'),
     sms: path.join(__app.__root.__services, 'smsService'),
-    // home: path.join(__app.__root.__services, 'homeService'),
-    // dashboard: path.join(__app.__root.__services, 'dashboardService'),
-    // case: path.join(__app.__root.__services, 'caseService'),
-    // survey: path.join(__app.__root.__services, 'surveyService'),
-    // workflow: path.join(__app.__root.__services, 'workflowService'),
-    // admin: path.join(__app.__root.__services, 'adminService'),
-    // role: path.join(__app.__root.__services, 'roleService'),
-    // readOnly: path.join(__app.__root.__services, 'readOnlyService'),
-    // assignment: path.join(__app.__root.__services, 'assignmentService'),
-    // user: path.join(__app.__root.__services, 'userService'),
-    // alert: path.join(__app.__root.__services, 'alertService'),
-    // entity: path.join(__app.__root.__services, 'entityService'),
-    // notes: path.join(__app.__root.__services, 'notesService'),
-    // task: path.join(__app.__root.__services, 'taskService'),
 };
 
 //modules in apis folder
@@ -76,16 +46,6 @@ global.__app.__apis = {
     user: path.join(__app.__root.__apis, 'userAPI'),
     root: path.join(__app.__root.__apis, 'rootAPI'),
     sms: path.join(__app.__root.__apis, 'smsAPI'),
-    // dashboard: path.join(__app.__root.__apis, 'dashboardAPI'),
-    // survey: path.join(__app.__root.__apis, 'surveyAPI'),
-    // workflow: path.join(__app.__root.__apis, 'workflowAPI'),
-    // role: path.join(__app.__root.__apis, 'roleAPI'),
-    // assignment: path.join(__app.__root.__apis, 'assignmentAPI'),
-    // user: path.join(__app.__root.__apis, 'userAPI'),
-    // alert: path.join(__app.__root.__apis, 'alertAPI'),
-    // search: path.join(__app.__root.__apis, 'searchAPI'),
-    // notes: path.join(__app.__root.__apis, 'notesAPI'),
-    // task: path.join(__app.__root.__apis, 'taskAPI'),
 };
 
 //modules in filters folder
@@ -101,13 +61,6 @@ global.__app.__filters = {
 
 global.__app.__rests = {
     // survey: path.join(__app.__root.__rest, 'surveyFaastDao'),
-    // workflow: path.join(__app.__root.__rest, 'workflowFaastDao'),
-    // assignment: path.join(__app.__root.__rest, 'assignmentFaastDao'),
-    // alert: path.join(__app.__root.__rest, 'alertFaastDao'),
-    // user: path.join(__app.__root.__rest, 'userFaastDao'),
-    // notes: path.join(__app.__root.__rest, 'notesFaastDao'),
-    // correspondence: path.join(__app.__root.__rest, 'correspondenceFaastDao'),
-    // task: path.join(__app.__root.__rest, 'taskFaastDao')
 };
 
 global.__app.__utils = {
@@ -116,7 +69,7 @@ global.__app.__utils = {
     format: path.join(__app.__root.__utils, 'format'),
     loginedIn: path.join(__app.__root.__utils, 'loggedIn'),
     renderUtil: path.join(__app.__root.__utils, 'renderUtil'),
-    log: path.join(__app.__root.__utils, 'log')
+    log: path.join(__app.__root.__utils, 'logTracer')
 };
 
 

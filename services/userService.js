@@ -3,6 +3,7 @@ var config = require('config');
 var key = '$e(ret!';
 var uuid = require('uuid');
 var userDao = require(__app.__dao.user);
+var logger = require(__app.__utils.log);
 
 module.exports.getAllUsers = function (callback) {
     var params = {key: key};

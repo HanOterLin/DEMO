@@ -1,5 +1,5 @@
 var jwtUtil = require(__app.__utils.jwt);
-var logger = require(__app.__utils.log).logger();
+var logger = require(__app.__utils.log);
 var alidayu = require('alidayu-node');
 
 module.exports.sendMessage = function (params, callback) {

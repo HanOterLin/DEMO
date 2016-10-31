@@ -2,7 +2,7 @@ var jwtUtil = require(__app.__utils.jwt);
 var config = require('config');
 var uuid = require('uuid');
 var nodemailer = require('nodemailer');
-var logger = require(__app.__utils.log).logger();
+var logger = require(__app.__utils.log);
 
 module.exports.sendEmail = function (params, callback) {
     try {
