@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/head %>
+    <title>Survey &middot; <%= app_name %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="/open_source/surveyjs/knockout-min.js"></script>
+    <script src="/open_source/surveyjs/survey.ko.js"></script>
+    <script src="/javascript/survey.js"></script>
+</head>
+<body class="container">
+<header>
+    <% include ../partials/header %>
+</header>
+<main>
+    <div class="jumbotron">
+        <div id="surveyContainer"></div>
+    </div>
+</main>
+<footer>
+    <% include ../partials/footer %>
+</footer>
+</body>
+</html>

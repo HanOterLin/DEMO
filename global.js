@@ -19,6 +19,7 @@ global.__app.__routes = {
     email: path.join(__app.__root.__routes, 'email'),
     user: path.join(__app.__root.__routes, 'user'),
     sms: path.join(__app.__root.__routes, 'sms'),
+    survey: path.join(__app.__root.__routes, 'survey'),
     root: path.join(__app.__root.__routes, 'root'),
     index: path.join(__app.__root.__routes, 'index'),
 };
