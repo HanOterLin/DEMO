@@ -22,6 +22,7 @@ global.__app.__routes = {
     survey: path.join(__app.__root.__routes, 'survey'),
     root: path.join(__app.__root.__routes, 'root'),
     index: path.join(__app.__root.__routes, 'index'),
+    about: path.join(__app.__root.__routes, 'about'),
 };
 
 //modules in dao folder
@@ -30,6 +31,7 @@ global.__app.__dao = {
     email: path.join(__app.__root.__dao, 'emailDao'),
     user: path.join(__app.__root.__dao, 'userDao'),
     sms: path.join(__app.__root.__dao, 'smsDao'),
+    about: path.join(__app.__root.__dao, 'aboutDao'),
 };
 
 //modules in services folder
@@ -38,6 +40,7 @@ global.__app.__services = {
     email: path.join(__app.__root.__services, 'emailService'),
     user: path.join(__app.__root.__services, 'userService'),
     sms: path.join(__app.__root.__services, 'smsService'),
+    about: path.join(__app.__root.__services, 'aboutService'),
 };
 
 //modules in apis folder
@@ -47,6 +50,7 @@ global.__app.__apis = {
     user: path.join(__app.__root.__apis, 'userAPI'),
     root: path.join(__app.__root.__apis, 'rootAPI'),
     sms: path.join(__app.__root.__apis, 'smsAPI'),
+    about: path.join(__app.__root.__apis, 'aboutAPI'),
 };
 
 //modules in filters folder

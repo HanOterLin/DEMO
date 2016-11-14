@@ -2,8 +2,9 @@
 <html>
 <head>
     <% include ../partials/head %>
-    <title><%= title %></title>
+    <title>About &middot; <%= app_name %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascript/about.js"></script>
 </head>
 <body class="container">
 <header>
@@ -11,10 +12,89 @@
 </header>
 <main>
     <div class="jumbotron">
-        <h1><%= title %></h1>
-        <p>
-            <a class="btn btn-lg btn-primary" href="https://getbootstrap.com/components/#navbar" role="button">View navbar docs »</a>
-        </p>
+        <h2>Users</h2>
+        <span id="addButton" class="glyphicon glyphicon-plus" data-target="#addUser"></span>
+        <div class="dataTables_wrapper">
+            <table id="usersTable" class="dataTable display">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>edit</th>
+                    <th>remove</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div id="editUser" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header Edit">
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-sm-8">
+                                            <div class="form-group">
+                                                <label>Name:</label>
+                                                <input id="edit_user_name" class="form-control" type="text"
+                                                       placeholder="Name">
+                                                <label>Password:</label>
+                                                <input id="edit_user_pwd" class="form-control" type="password"
+                                                       placeholder="Password">
+                                                <label>Email:</label>
+                                                <input id="edit_user_email" class="form-control" type="email"
+                                                       placeholder="Email">
+                                                <input id="edit_user_id" class="form-control" type="hidden">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveEdit" class="btn btn-primary orange-btn">Save</button>
+                    <button data-dismiss="modal" class="btn cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div id="addUser" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header Edit">
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="col-sm-8">
+                                            <div class="form-group">
+                                                <label>Name:</label>
+                                                <input id="add_user_name" class="form-control" type="text"
+                                                       placeholder="Name">
+                                                <label>Password:</label>
+                                                <input id="add_user_pwd" class="form-control" type="password"
+                                                       placeholder="Password">
+                                                <label>Email:</label>
+                                                <input id="add_user_email" class="form-control" type="email"
+                                                       placeholder="Email">
+                                                <input id="add_user_id" class="form-control" type="hidden">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveAdd" class="btn btn-primary orange-btn">Add</button>
+                    <button data-dismiss="modal" class="btn cancel-btn">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <footer>

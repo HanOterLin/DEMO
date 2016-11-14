@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-
+var responseRender = require(__app.__filters.responseRender);
 
 router.get('/', function(req, res, next) {
-    res.render('pages/about', { title: 'About' });
+    responseRender(res, 'pages/about');
 });
 
 module.exports = router;
