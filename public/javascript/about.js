@@ -14,14 +14,12 @@ $(function () {
         });
 
         $('#saveAdd').on('click', function () {
-            var currUserName = $('#add_user_name').val();
-            var currUserEmail = $('#add_user_email').val();
-            var currUserPwd = $('#add_user_pwd').val();
+            var currFirstName = $('#add_first_name').val();
+            var currLastName = $('#add_last_name').val();
 
             var data = {
-                "name": currUserName,
-                "email": currUserEmail,
-                "pwd": currUserPwd
+                "firstName": currUserName,
+                "lastName": currLastName
             };
             $.ajax({
                 url: "about/add-user",
@@ -42,16 +40,12 @@ $(function () {
         });
 
         $('#saveEdit').on('click', function () {
-            var currUserName = $('#edit_user_name').val();
-            var currUserEmail = $('#edit_user_email').val();
-            var currUserPwd = $('#edit_user_pwd').val();
-            var currUserId = $('#edit_user_id').val();
+            var currFirstName = $('#edit_first_name').val();
+            var currLastName = $('#edit_last_name').val();
 
             var data = {
-                "id": currUserId,
-                "name": currUserName,
-                "email": currUserEmail,
-                "pwd": currUserPwd
+                "first_name": currFirstName,
+                "last_name": currLastName
             };
             $.ajax({
                 url: "about/update-user",
@@ -140,9 +134,8 @@ $(function () {
         });
         $('#usersTable tbody').on("click", "span.glyphicon-pencil", function () {
             var tdNodes = $(this).parents('tr').find('td');
-            $('#edit_user_name').val($(tdNodes[0]).text());
-            $('#edit_user_email').val($(tdNodes[1]).text());
-            $('#edit_user_pwd').val($(tdNodes[2]).text());
+            $('#edit_first_name').val($(tdNodes[0]).text());
+            $('#edit_last_name').val($(tdNodes[1]).text());
             $('#edit_user_id').val($(this).attr('user_id'));
             $('#editUser').modal('show');
         });

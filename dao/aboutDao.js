@@ -4,7 +4,7 @@ var uuid = require('uuid');
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('postgres://postgres:admin@localhost:5432/OTER');
 
-var User = sequelize.define('oter.demo', {
+var User = sequelize.define('demo', {
     firstName: {
         type: Sequelize.STRING,
         field: 'first_name' // Will result in an attribute that is firstName when user facing but first_name in the database
@@ -30,12 +30,15 @@ module.exports.getAllUsers = function (params, callback) {
 }
 
 module.exports.addUser = function (params, callback) {
-    params.uuid = uuid.v1();
-    db.query("insert into oter.user(u_name, u_email, u_pwd, u_uuid) values (encrypt(${name},${key},'aes'), encrypt(${email},${key},'aes'), encrypt(${pwd},${key},'aes'), ${uuid})", params)
-        .then(function (data) {
-            callback(null, data);
+    User.sync({force: false}).then(function () {
+        // Table created
+        return User.create({
+            firstName: params.firstName,
+            lastName: params.lastName
         }).catch(function (error) {
-        callback(error, null);
+            callback(error, null);
+        });
+        callback(null, null);
     });
 }
 module.exports.removeUser = function (params, callback) {
