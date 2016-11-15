@@ -18,7 +18,7 @@ $(function () {
             var currLastName = $('#add_last_name').val();
 
             var data = {
-                "firstName": currUserName,
+                "firstName": currFirstName,
                 "lastName": currLastName
             };
             $.ajax({
@@ -26,11 +26,7 @@ $(function () {
                 data: data,
                 method: "post",
                 success: function (res) {
-                    if (res.code === 0) {
-                        initUserTable();
-                    } else {
-                        console.log(res);
-                    }
+                    initUserTable();
                     $('#addUser').modal('hide');
                 },
                 error: function (err) {
@@ -42,22 +38,20 @@ $(function () {
         $('#saveEdit').on('click', function () {
             var currFirstName = $('#edit_first_name').val();
             var currLastName = $('#edit_last_name').val();
+            var currId = $('#edit_user_id').val();
 
             var data = {
                 "first_name": currFirstName,
-                "last_name": currLastName
+                "last_name": currLastName,
+                "id" : currId
             };
             $.ajax({
                 url: "about/update-user",
                 data: data,
                 method: "post",
                 success: function (res) {
-                    if (res.code === 0) {
-                        $('#editUser').modal('hide');
-                        initUserTable();
-                    } else {
-                        console.log(res);
-                    }
+                    $('#editUser').modal('hide');
+                    initUserTable();
                 },
                 error: function (err) {
                     console.log(err);
@@ -72,14 +66,9 @@ $(function () {
         $.ajax({
             method: 'get',
             data: '',
-            url: "about/all-user",
+            url: "about/all-users",
             success: function (res) {
-                if (res.code === 0) {
-                    setUserTable(res.data);
-                } else {
-                    console.log(res);
-                    setUserTable(new Array());
-                }
+                setUserTable(res.data);
                 setUserTableOptions();
             },
             error: function (err) {
@@ -150,11 +139,7 @@ $(function () {
                 data: data,
                 method: "post",
                 success: function (res) {
-                    if (res.code === 0) {
-                        initUserTable();
-                    } else {
-                        console.log(res);
-                    }
+                    initUserTable();
                 },
                 error: function (err) {
                     console.log(err);

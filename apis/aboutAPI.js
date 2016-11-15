@@ -3,7 +3,7 @@ var aboutService = require(__app.__services.about);
 var express = require('express');
 var router = express.Router();
 
-router.get('/all-user', function (req, res) {
+router.get('/all-users', function (req, res) {
     aboutService.getAllUsers(function (error, data) {
         responseHandler(res, error, data);
     });
