@@ -29,6 +29,9 @@ $(function () {
                 method: "post",
                 success: function (res) {
                     if (res.code === 0) {
+                        $('#add_user_name').val('');
+                        $('#add_user_email').val('');
+                        $('#add_user_pwd').val('');
                         initUserTable();
                     } else {
                         console.log(res);
