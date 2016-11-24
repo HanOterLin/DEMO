@@ -11,9 +11,22 @@ var mysqlSQL = new Sequelize('OTER', 'root', 'admin', {
     }
 });
 
-var postgreSQL = new Sequelize('postgres://postgres:admin@localhost:5432/OTER');
+var schemaName = 'test';
+var postgreSQL = new Sequelize('OTER', 'postgres', 'admin', {
+    host: "localhost",
+    port: 5432,
+    dialect: 'postgres',
+    scheme: schemaName,
+    pool: {
+        max: 2,
+        min: 0,
+        idle: 10000
+    }
+});
 
-var sequelize = mysqlSQL;
+// var postgreSQL = new Sequelize('postgres://postgres:admin@localhost:5432/OTER');
+
+var sequelize = postgreSQL;
 
 var User = sequelize.define('users', {
     firstName: {
@@ -29,45 +42,66 @@ var User = sequelize.define('users', {
 });
 
 module.exports.getAllUsers = function (params, callback) {
-    User.findAll().then(function(users) {
-        var data = new Array();
-        users.forEach(function(element) {
-            data.push(element.dataValues);
+    try {
+        User.schema(schemaName).sync({force: false}).then(function () {
+            User.schema(schemaName).findAll().then(function (users) {
+                var data = new Array();
+                users.forEach(function (element) {
+                    data.push(element.dataValues);
+                });
+                callback(null, data);
+            });
         });
-        callback(null, data);
-    }).catch(function (error) {
-        callback(error, null);
-    });
+    } catch (e) {
+        callback(e, null);
+    }
 }
 
 module.exports.addUser = function (params, callback) {
-    User.sync({force: false}).then(function () {
-        return User.create({
-            firstName: params.firstName,
-            lastName: params.lastName
+    try {
+        User.schema(schemaName).sync({force: false}).then(function () {
+            return User.schema(schemaName).create({
+                firstName: params.firstName,
+                lastName: params.lastName
+            }).then(function (result) {
+                callback(null, result);
+            });
         });
-    });
-    callback(null, null);
+    } catch (e) {
+        callback(e, null);
+    }
 }
 module.exports.removeUser = function (params, callback) {
-    User.destroy({
-        where: {
-            id: parseInt(params.id)
-        }
-    });
-    callback(null, params);
+    try {
+        User.schema(schemaName).sync({force: false}).then(function () {
+            User.schema(schemaName).destroy({
+                where: {
+                    id: parseInt(params.id)
+                }
+            }).then(function (result) {
+                callback(null, result);
+            });
+        });
+    } catch (e) {
+        callback(e, null);
+    }
 }
 
 module.exports.updateUser = function (params, callback) {
-    User.sync({force: false}).then(function () {
-        User.update({
-            firstName: params.first_name,
-            lastName: params.last_name
-        }, {
-            where: {
-                id: parseInt(params.id)
-            }
+    try {
+        User.schema(schemaName).sync({force: false}).then(function () {
+            User.schema(schemaName).update({
+                firstName: params.first_name,
+                lastName: params.last_name
+            }, {
+                where: {
+                    id: parseInt(params.id)
+                }
+            }).then(function (result) {
+                callback(null, result);
+            });
         });
-    });
-    callback(null, params);
+    } catch (e) {
+        callback(e, null);
+    }
 }

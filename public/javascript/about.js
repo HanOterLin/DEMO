@@ -26,6 +26,8 @@ $(function () {
                 data: data,
                 method: "post",
                 success: function (res) {
+                    $('#add_first_name').val('');
+                    $('#add_last_name').val('');
                     initUserTable();
                     $('#addUser').modal('hide');
                 },
