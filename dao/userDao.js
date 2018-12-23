@@ -1,5 +1,5 @@
 var pgp = require("pg-promise")(/*options*/);
-var db = pgp(POSTGRE_CONNECTION);
+// var db = pgp(POSTGRE_CONNECTION);
 var uuid = require('uuid');
 
 module.exports.getAllUsers = function (params, callback) {
