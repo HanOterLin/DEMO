@@ -12,8 +12,9 @@
     <script src="/bower_components/dropzone/dist/dropzone.js"></script>
     <script src="/javascript/upload.js"></script>
 </header>
-<main>
-    <div class="jumbotron">
+<main class="main">
+    <div class="card">
+        <div class="card-body">
         <h2>Upload</h2>
         <div id="dropzone">
             <form id="upload" class="dropzone" method="post" action="/<%= app_name %>/upload/upload-file"
@@ -24,8 +25,9 @@
             </form>
         </div>
     </div>
+    </div>
 </main>
-<footer>
+<footer class="footer">
     <% include ../partials/footer %>
 </footer>
 </body>
