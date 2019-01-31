@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var responseRender = require(__app.__filters.responseRender);
 const fs = require('fs');
+const sizeOf = require('image-size');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -21,14 +22,53 @@ router.get('/3d-gallery-room', function(req, res, next) {
 
 });
 
-router.get('/multi-layout-slideshow', function(req, res, next) {
-  responseRender(res, 'pages/multi-layout-slideshow');
-});
-
 router.get('/record-player', function(req, res, next) {
   responseRender(res, 'pages/record-player');
 });
 
+router.get('/image-gride-effects', function(req, res, next) {
+
+  const photosPath = __app.__root.__uploads;
+  const files = fs.readdirSync(photosPath);
+
+  const images = files.map(file => {
+    const dimensions = sizeOf(photosPath + '/' + file);
+    const size = `${dimensions.width}x${dimensions.height}`;
+    return {
+      name: file,
+      size,
+    }
+  });
+
+  responseRender(res, 'pages/image-gride-effects', {images});
+});
+
+router.get('/photography-website-concept', function(req, res, next) {
+
+  const photosPath = __app.__root.__uploads;
+  const files = fs.readdirSync(photosPath);
+
+  const data = [
+    {
+      title: 'topic1',
+      images: files.filter((file, i) => i % 4 === 0)
+    },
+    {
+      title: 'topic2',
+      images: files.filter((file, i) => i % 4 === 1)
+    },
+    {
+      title: 'topic3',
+      images: files.filter((file, i) => i % 4 === 2)
+    },
+    {
+      title: 'topic4',
+      images: files.filter((file, i) => i % 4 === 3)
+    }
+  ];
+
+  responseRender(res, 'pages/photography-website-concept', {data});
+});
 
 
 module.exports = router;

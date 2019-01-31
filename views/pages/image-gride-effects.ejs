@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Image Grid Effects | Demo 2 | Codrops</title>
+    <meta name="description" content="Effect inspiration for opening an image grid item." />
+    <meta name="keywords" content="image grid, effect, inspiration, css, javascript, animation, masonry" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="third-party-source/image-gride-effects/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="third-party-source/image-gride-effects/fonts/font-awesome-4.3.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="third-party-source/image-gride-effects/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="third-party-source/image-gride-effects/css/style2.css" />
+    <script src="third-party-source/image-gride-effects/js/modernizr-custom.js"></script>
+</head>
+
+<body class="demo-2">
+<div class="container">
+    <header class="codrops-header">
+        <!--<div class="codrops-links">-->
+            <!--<a class="codrops-icon codrops-icon&#45;&#45;prev" href="/" title="Previous Demo"><span>Previous Demo</span></a>-->
+            <!--<a class="codrops-icon codrops-icon&#45;&#45;drop" href="/" title="Back to the article"><span>Back to the Codrops article</span></a>-->
+        <!--</div>-->
+        <!--<h1>Image Grid Effects <span>Animations for photography grids</span></h1>-->
+        <!--<nav class="codrops-demos">-->
+            <!--<a href="index.html">Demo 1</a>-->
+            <!--<a class="current-demo" href="index2.html">Demo 2</a>-->
+            <!--<a href="index3.html">Demo 3</a>-->
+            <!--<a href="index4.html">Demo 4</a>-->
+            <!--<a href="index5.html">Demo 5</a>-->
+            <!--<a href="index6.html">Demo 6</a>-->
+        <!--</nav>-->
+    </header>
+    <div class="content">
+        <div class="grid">
+            <% for(let i=0; i < images.length; i++) { %>
+                <div class="grid__item" data-size="<%= images[i].size %>">
+                    <a href="uploads/<%= images[i].name %>" class="img-wrap"><img src="uploads/<%= images[i].name %>" alt="" />
+                        <div class="description description--grid">
+                            <h3>Mother's Love</h3>
+                            <p>Every time you drink a glass of milk or eat a piece of cheese, you harm a mother. Please go vegan. <em>&mdash; Gary L. Francione</em></p>
+                            <div class="details">
+                                <ul>
+                                    <li><i class="icon icon-camera"></i><span>Canon PowerShot S95</span></li>
+                                    <li><i class="icon icon-focal_length"></i><span>22.5mm</span></li>
+                                    <li><i class="icon icon-aperture"></i><span>&fnof;/5.6</span></li>
+                                    <li><i class="icon icon-exposure_time"></i><span>1/1000</span></li>
+                                    <li><i class="icon icon-iso"></i><span>80</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+
+        </div>
+        <!-- /grid -->
+        <div class="preview">
+            <button class="action action--close"><i class="fa fa-times"></i><span class="text-hidden">Close</span></button>
+            <div class="description description--preview"></div>
+        </div>
+        <!-- /preview -->
+    </div>
+    <!-- /content -->
+    <!-- Related demos -->
+    <!--<section class="content content&#45;&#45;related">-->
+        <!--<p>Quotes from <a href="http://www.pledgevegan.com/vegan-spotlight/top-100-vegan-quotes">Pledge Vegan</a></p>-->
+        <!--<p>Images from <a href="http://www.unsplash.com">Unsplash.com</a></p>-->
+        <!--<p>If you enjoyed this demo you might also like:</p>-->
+        <!--<a class="media-item" href="http://tympanus.net/Development/AnimatedGridLayout/">-->
+            <!--<img class="media-item__img" src="third-party-source/image-gride-effects/img/related/GridItemAnimation.jpg">-->
+            <!--<h3 class="media-item__title">Grid Item Animation Layout</h3>-->
+        <!--</a>-->
+        <!--<a class="media-item" href="http://tympanus.net/Tutorials/ShapeHoverEffectSVG/">-->
+            <!--<img class="media-item__img" src="third-party-source/image-gride-effects/img/related/ShapeHoverEffect.png">-->
+            <!--<h3 class="media-item__title">Shape Hover Effect with SVG</h3>-->
+        <!--</a>-->
+    <!--</section>-->
+</div>
+<!-- /container -->
+<script src="third-party-source/image-gride-effects/js/imagesloaded.pkgd.min.js"></script>
+<script src="third-party-source/image-gride-effects/js/masonry.pkgd.min.js"></script>
+<script src="third-party-source/image-gride-effects/js/classie.js"></script>
+<script src="third-party-source/image-gride-effects/js/main.js"></script>
+<script>
+  (function() {
+    var support = { transitions: Modernizr.csstransitions },
+      // transition end event name
+      transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
+      transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+      onEndTransition = function( el, callback ) {
+        var onEndCallbackFn = function( ev ) {
+          if( support.transitions ) {
+            if( ev.target != this ) return;
+            this.removeEventListener( transEndEventName, onEndCallbackFn );
+          }
+          if( callback && typeof callback === 'function' ) { callback.call(this); }
+        };
+        if( support.transitions ) {
+          el.addEventListener( transEndEventName, onEndCallbackFn );
+        }
+        else {
+          onEndCallbackFn();
+        }
+      };
+
+    new GridFx(document.querySelector('.grid'), {
+      imgPosition : {
+        x : -0.5,
+        y : 1
+      },
+      onOpenItem : function(instance, item) {
+        instance.items.forEach(function(el) {
+          if(item != el) {
+            var delay = Math.floor(Math.random() * 50);
+            el.style.WebkitTransition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), -webkit-transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+            el.style.transition = 'opacity .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1), transform .5s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
+            el.style.WebkitTransform = 'scale3d(0.1,0.1,1)';
+            el.style.transform = 'scale3d(0.1,0.1,1)';
+            el.style.opacity = 0;
+          }
+        });
+      },
+      onCloseItem : function(instance, item) {
+        instance.items.forEach(function(el) {
+          if(item != el) {
+            el.style.WebkitTransition = 'opacity .4s, -webkit-transform .4s';
+            el.style.transition = 'opacity .4s, transform .4s';
+            el.style.WebkitTransform = 'scale3d(1,1,1)';
+            el.style.transform = 'scale3d(1,1,1)';
+            el.style.opacity = 1;
+
+            onEndTransition(el, function() {
+              el.style.transition = 'none';
+              el.style.WebkitTransform = 'none';
+            });
+          }
+        });
+      }
+    });
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Photography Website Concept</title>
+    <meta name="description" content="A photography-inspired website layout with an expanding stack slider and a background image tilt effect" />
+    <meta name="keywords" content="photography, template, layout, effect, expand, image stack, animation, flickity, tilt" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="third-party-source/photography-website-concept/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="third-party-source/photography-website-concept/css/flickity.css" />
+    <link rel="stylesheet" type="text/css" href="third-party-source/photography-website-concept/css/main.css" />
+    <script src="third-party-source/photography-website-concept/js/modernizr.custom.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <div class="hero__back hero__back--static"></div>
+        <div class="hero__back hero__back--mover"></div>
+        <div class="hero__front"></div>
+    </div>
+    <header class="codrops-header">
+        <div class="codrops-links">
+            <a class="codrops-icon codrops-icon--prev" href="http://tympanus.net/Development/InteractiveColoringConcept/" title="Previous Demo"><span>Previous Demo</span></a>
+            <a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/2015/05/06/photography-website-concept/" title="Back to the article"><span>Back to the Codrops article</span></a>
+        </div>
+        <h1 class="codrops-title">Christian Zana <span>Photography</span></h1>
+        <nav class="menu">
+            <a class="menu__item" href="#"><span>About</span></a>
+            <a class="menu__item menu__item--current" href="#"><span>Work</span></a>
+            <a class="menu__item" href="#"><span>Contact</span></a>
+        </nav>
+    </header>
+    <div class="stack-slider">
+        <div class="stacks-wrapper">
+            <% for(let i=0; i < data.length; i++) { %>
+                <div class="stack">
+                    <h2 class="stack-title"><a href="#" data-text="<%= data[i].title %>"><span><%= data[i].title %></span></a></h2>
+                    <% for(let j=0; j < data[i].images.length; j++) { %>
+                        <div class="item">
+                            <div class="item__content">
+                                <img src="uploads/<%= data[i].images[j] %>" alt="<%= data[i].images[j] %>" />
+                                <h3 class="item__title">Hoodie stumptown kitsch <span class="item__date">05/05/2015</span></h3>
+                                <div class="item__details">
+                                    <ul>
+                                        <li><i class="icon icon-camera"></i><span>Canon PowerShot S95</span></li>
+                                        <li><i class="icon icon-focal_length"></i><span>22.5mm</span></li>
+                                        <li><i class="icon icon-aperture"></i><span>&fnof;/5.6</span></li>
+                                        <li><i class="icon icon-exposure_time"></i><span>1/1000</span></li>
+                                        <li><i class="icon icon-iso"></i><span>80</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+        <!-- /stacks-wrapper -->
+    </div>
+    <!-- /stacks -->
+    <img class="loader" src="third-party-source/photography-website-concept/img/three-dots.svg" width="60" alt="Loader image" />
+</div>
+<!-- /container -->
+<!-- Flickity v1.0.0 http://flickity.metafizzy.co/ -->
+<script src="third-party-source/photography-website-concept/js/flickity.pkgd.min.js"></script>
+<script src="third-party-source/photography-website-concept/js/smoothscroll.js"></script>
+<script src="third-party-source/photography-website-concept/js/main.js"></script>
+</body>
+</html>
