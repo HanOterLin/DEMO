@@ -70,5 +70,13 @@ router.get('/photography-website-concept', function(req, res, next) {
   responseRender(res, 'pages/photography-website-concept', {data});
 });
 
+router.get('/gamma-gallery', function(req, res, next) {
+
+  const photosPath = __app.__root.__uploads;
+  const files = fs.readdirSync(photosPath);
+
+  responseRender(res, 'pages/gamma-gallery', {images: files});
+});
+
 
 module.exports = router;
