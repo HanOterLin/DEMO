@@ -12,7 +12,11 @@ router.get('/3d-gallery-room', function(req, res, next) {
 
   const photosPath = __app.__root.__uploads;
   const files = fs.readdirSync(photosPath);
-  responseRender(res, 'pages/3d-gallery-room', {images: files});
+
+  let num = Math.floor(files.length / 4);
+  let more = files.length % 4;
+
+  responseRender(res, 'pages/3d-gallery-room', {images: files, num, more});
 
 
 });
