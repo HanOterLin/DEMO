@@ -18,7 +18,7 @@ module.exports = function (res, view, options, callback) {
     } else {
         options = options ? options : {};
 
-        options.app_name = APP_NAME;
+        // options.app_name = APP_NAME;
         // options.faast_url = faast_url;
 
         res.render(view, options, callback);

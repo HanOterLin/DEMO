@@ -11,6 +11,7 @@ global.__app.__root = {
     __apis: path.join(__dirname, 'apis'),
     __filters: path.join(__dirname, 'filters'),
     __utils: path.join(__dirname, 'utils'),
+  __uploads: path.join(__dirname, 'public/uploads'),
 };
 
 //modules in routes folder
@@ -29,28 +30,28 @@ global.__app.__routes = {
 global.__app.__dao = {
     upload: path.join(__app.__root.__dao, 'uploadDao'),
     email: path.join(__app.__root.__dao, 'emailDao'),
-    user: path.join(__app.__root.__dao, 'userDao'),
-    sms: path.join(__app.__root.__dao, 'smsDao'),
-    about: path.join(__app.__root.__dao, 'aboutDao'),
+    // user: path.join(__app.__root.__dao, 'userDao'),
+    // sms: path.join(__app.__root.__dao, 'smsDao'),
+    // about: path.join(__app.__root.__dao, 'aboutDao'),
 };
 
 //modules in services folder
 global.__app.__services = {
     upload: path.join(__app.__root.__services, 'uploadService'),
     email: path.join(__app.__root.__services, 'emailService'),
-    user: path.join(__app.__root.__services, 'userService'),
-    sms: path.join(__app.__root.__services, 'smsService'),
-    about: path.join(__app.__root.__services, 'aboutService'),
+    // user: path.join(__app.__root.__services, 'userService'),
+    // sms: path.join(__app.__root.__services, 'smsService'),
+    // about: path.join(__app.__root.__services, 'aboutService'),
 };
 
 //modules in apis folder
 global.__app.__apis = {
     email: path.join(__app.__root.__apis, 'emailAPI'),
     upload: path.join(__app.__root.__apis, 'uploadAPI'),
-    user: path.join(__app.__root.__apis, 'userAPI'),
+    // user: path.join(__app.__root.__apis, 'userAPI'),
     root: path.join(__app.__root.__apis, 'rootAPI'),
-    sms: path.join(__app.__root.__apis, 'smsAPI'),
-    about: path.join(__app.__root.__apis, 'aboutAPI'),
+    // sms: path.join(__app.__root.__apis, 'smsAPI'),
+    // about: path.join(__app.__root.__apis, 'aboutAPI'),
 };
 
 //modules in filters folder
@@ -80,4 +81,4 @@ global.__app.__utils = {
 
 //global variables
 // global.login_page_url = faast_url + app_name.toLowerCase() + '-login';
-global.jwt_name = 'jwt-' + APP_NAME;
+// global.jwt_name = 'jwt-' + APP_NAME;

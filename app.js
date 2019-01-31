@@ -8,9 +8,9 @@ var fs = require('fs');
 
 //set global variables
 require('dotenv').config();
-global.APP_NAME = process.env.APP_NAME;
-global.RENDER_DATA = {APP_NAME: APP_NAME};
-global.POSTGRE_CONNECTION = process.env.POSTGRE_CONNECTION + APP_NAME;
+// global.APP_NAME = process.env.APP_NAME;
+// global.RENDER_DATA = {APP_NAME: APP_NAME};
+// global.POSTGRE_CONNECTION = process.env.POSTGRE_CONNECTION + APP_NAME;
 
 require('./global');
 
@@ -31,8 +31,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 var filter = require(__app.__filters.filters);
 
 app.use(filter());
-app.use('/' + APP_NAME, require(__app.__routes.root));
-app.use('/' + APP_NAME, require(__app.__apis.root));
+app.use('/', require(__app.__routes.root));
+app.use('/', require(__app.__apis.root));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -68,7 +68,7 @@ app.use(function(err, req, res, next) {
 app.set('port', 8888);
 app.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
-  console.log('http://localhost:' + app.get('port') + '/' + APP_NAME);
+  console.log('http://localhost:' + app.get('port'));
 });
 
 module.exports = app;

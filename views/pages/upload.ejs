@@ -2,7 +2,7 @@
 <html>
 <head>
     <% include ../partials/head %>
-    <title>Upload &middot; <%= app_name %></title>
+    <!--<title>Upload &middot; </title>-->
 </head>
 <body class="container">
 <header>
@@ -17,7 +17,7 @@
         <div class="card-body">
         <h2>Upload</h2>
         <div id="dropzone">
-            <form id="upload" class="dropzone" method="post" action="/<%= app_name %>/upload/upload-file"
+            <form id="upload" class="dropzone" method="post" action="/upload/upload-file"
                   enctype='multipart/form-data'>
                 <div class="fallback">
                     <input name="file" type="file">

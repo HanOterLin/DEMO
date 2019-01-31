@@ -6,7 +6,7 @@ module.exports.uploadFile = function (req, res, callback) {
     var multer = require('multer');
     var storage = multer.diskStorage({
         "destination": function (req, file, callback) {
-            callback(null, './upload/')
+            callback(null, './public/uploads/')
         },
         "filename": function (req, file, callback) {
             callback(null, Date.now() + '-' + file.originalname)
