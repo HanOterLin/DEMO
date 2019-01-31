@@ -21,4 +21,10 @@ router.get('/3d-gallery-room', function(req, res, next) {
 
 });
 
+router.get('/multi-layout-slideshow', function(req, res, next) {
+  responseRender(res, 'pages/multi-layout-slideshow');
+});
+
+
+
 module.exports = router;
