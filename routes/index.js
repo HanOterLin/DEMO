@@ -25,6 +25,10 @@ router.get('/multi-layout-slideshow', function(req, res, next) {
   responseRender(res, 'pages/multi-layout-slideshow');
 });
 
+router.get('/record-player', function(req, res, next) {
+  responseRender(res, 'pages/record-player');
+});
+
 
 
 module.exports = router;
