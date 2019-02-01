@@ -6,7 +6,20 @@ const sizeOf = require('image-size');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  responseRender(res, 'pages/index');
+
+  const photosPath = __app.__root.__uploads;
+  const files = fs.readdirSync(photosPath);
+
+  const images = files.map(file => {
+    const dimensions = sizeOf(photosPath + '/' + file);
+    return {
+      name: file,
+      height:dimensions.height,
+      width:dimensions.width,
+    }
+  });
+
+  responseRender(res, 'pages/index', {images});
 });
 
 router.get('/3d-gallery-room', function(req, res, next) {
@@ -79,6 +92,10 @@ router.get('/gamma-gallery', function(req, res, next) {
 
 router.get('/rgb-tool', function(req, res, next) {
   responseRender(res, 'pages/rgb-tool');
+});
+
+router.get('/grid-layout-motion', function(req, res, next) {
+  responseRender(res, 'pages/grid-layout-motion');
 });
 
 

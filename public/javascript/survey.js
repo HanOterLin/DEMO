@@ -1,6 +1,7 @@
 $(function () {
 
-    var surveyJSON = {
+    var 
+    surveyJSON = {
         title: "Tell us, what technologies do you use?", pages: [
             {
                 name: "page1", questions: [
