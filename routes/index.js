@@ -77,5 +77,9 @@ router.get('/gamma-gallery', function(req, res, next) {
   responseRender(res, 'pages/gamma-gallery', {images: files});
 });
 
+router.get('/rgb-tool', function(req, res, next) {
+  responseRender(res, 'pages/rgb-tool');
+});
+
 
 module.exports = router;
