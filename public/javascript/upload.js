@@ -2,7 +2,7 @@ Dropzone.options.upload = {
     paramName: 'file',
     maxFilesize: 4096, // MB
     // maxFiles: 1,
-    dictDefaultMessage: 'Drag a file here to upload, or click to select one',
+    dictDefaultMessage: '拖动图片到此处，或者点击此处选择图片',
     // acceptedFiles: '*/*',
     init: function() {
         this.on('success', function( file, resp ){

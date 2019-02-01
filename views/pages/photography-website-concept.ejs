@@ -22,15 +22,15 @@
         <div class="hero__front"></div>
     </div>
     <header class="codrops-header">
-        <div class="codrops-links">
-            <a class="codrops-icon codrops-icon--prev" href="http://tympanus.net/Development/InteractiveColoringConcept/" title="Previous Demo"><span>Previous Demo</span></a>
-            <a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/2015/05/06/photography-website-concept/" title="Back to the article"><span>Back to the Codrops article</span></a>
+        <div class="">
+            <a class="codrops-icon codrops-icon--prev" href="/" title="Previous Demo"><span>Previous Demo</span></a>
+            <!--<a class="codrops-icon codrops-icon&#45;&#45;drop" href="http://tympanus.net/codrops/2015/05/06/photography-website-concept/" title="Back to the article"><span>Back to the Codrops article</span></a>-->
         </div>
-        <h1 class="codrops-title">Christian Zana <span>Photography</span></h1>
+        <h1 class="codrops-title">秀 <span>光影</span></h1>
         <nav class="menu">
-            <a class="menu__item" href="#"><span>About</span></a>
-            <a class="menu__item menu__item--current" href="#"><span>Work</span></a>
-            <a class="menu__item" href="#"><span>Contact</span></a>
+            <a class="menu__item" href="/upload"><span>添图</span></a>
+            <a class="menu__item menu__item--current" href="#"><span>光影秀</span></a>
+            <a class="menu__item" href="/3d-gallery-room"><span>画廊</span></a>
         </nav>
     </header>
     <div class="stack-slider">
@@ -41,15 +41,15 @@
                     <% for(let j=0; j < data[i].images.length; j++) { %>
                         <div class="item">
                             <div class="item__content">
-                                <img src="uploads/<%= data[i].images[j] %>" alt="<%= data[i].images[j] %>" />
-                                <h3 class="item__title">Hoodie stumptown kitsch <span class="item__date">05/05/2015</span></h3>
+                                <img src="uploads/<%= data[i].images[j].title %>" alt="<%= data[i].images[j].title %>" />
+                                <h3 class="item__title"><%= data[i].images[j].title %><span class="item__date"><%= data[i].images[j].createDate %></span></h3>
                                 <div class="item__details">
                                     <ul>
-                                        <li><i class="icon icon-camera"></i><span>Canon PowerShot S95</span></li>
-                                        <li><i class="icon icon-focal_length"></i><span>22.5mm</span></li>
-                                        <li><i class="icon icon-aperture"></i><span>&fnof;/5.6</span></li>
-                                        <li><i class="icon icon-exposure_time"></i><span>1/1000</span></li>
-                                        <li><i class="icon icon-iso"></i><span>80</span></li>
+                                        <li><i class="icon icon-camera"></i><span><%= data[i].images[j].camera %></span></li>
+                                        <li><i class="icon icon-focal_length"></i><span><%= data[i].images[j].focalLength %>mm</span></li>
+                                        <li><i class="icon icon-aperture"></i><span>&fnof;/<%= data[i].images[j].aperture %></span></li>
+                                        <li><i class="icon icon-exposure_time"></i><span><%= data[i].images[j].exposureTime %></span></li>
+                                        <li><i class="icon icon-iso"></i><span><%= data[i].images[j].iso %></span></li>
                                     </ul>
                                 </div>
                             </div>

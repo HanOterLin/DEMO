@@ -4,27 +4,25 @@
     <% include ../partials/head %>
     <!--<title>Upload &middot; </title>-->
 </head>
-<body class="container">
-<header>
-    <% include ../partials/header %>
-    <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <link href="/bower_components/dropzone/dist/dropzone.css" rel="stylesheet">
-    <script src="/bower_components/dropzone/dist/dropzone.js"></script>
-    <script src="/javascript/upload.js"></script>
-</header>
-<main class="main">
+<body>
+<% include ../partials/header %>
+<link rel='stylesheet' href='/stylesheets/style.css'/>
+<link href="/bower_components/dropzone/dist/dropzone.css" rel="stylesheet">
+<script src="/bower_components/dropzone/dist/dropzone.js"></script>
+<script src="/javascript/upload.js"></script>
+<main role="main" class="container">
     <div class="card">
         <div class="card-body">
-        <h2>Upload</h2>
-        <div id="dropzone">
-            <form id="upload" class="dropzone" method="post" action="/upload/upload-file"
-                  enctype='multipart/form-data'>
-                <div class="fallback">
-                    <input name="file" type="file">
-                </div>
-            </form>
+            <h2>上传图片</h2>
+            <div id="dropzone">
+                <form id="upload" class="dropzone" method="post" action="/upload/upload-file"
+                      enctype='multipart/form-data'>
+                    <div class="fallback">
+                        <input name="file" type="file">
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
     </div>
 </main>
 <footer class="footer">
